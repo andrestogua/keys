@@ -1,0 +1,25 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+<div class="card  col-6 mx-auto mt-5">
+    <div class="card-header">
+      <img src="{% static '/core/img/login.jpg'%}" class="card-img-top" alt="...">
+    </div>
+    <div class="card-body text-center">
+      <h4 class="card-title ">Administrador de contraseñas</h4>
+      
+      {% if not request.user.is_authenticated %}
+      <p class="card-text pt-3">No volveras a olvidar tus claves. Empieza ahora..!</p>
+      <a href="{% url 'login' %}" class="btn btn-primary">Inicia sesión</a>
+      <a href="{% url 'signup' %}" class="btn btn-link">Registrate</a>
+      {% else %}
+        {% if 'register' in request.GET %}
+        <p class="card-text pt-3 text-success">Ya estás registrado</p>
+        {% endif %}
+      <p class="card-text pt-3">Ahora ya puedes seguir..!!</p>
+      <a href="{% url 'logout' %}" class="btn btn-primary">Ver contrseñas</a>
+      <a href="{% url 'logout' %}" class="btn btn-link">Cerrar sesión</a>
+      {% endif %}
+    </div>
+  </div>
+{% endblock content%}
