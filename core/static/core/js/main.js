@@ -1,15 +1,8 @@
 $(document).ready(function(){
-    $('.menu-bars').on("click",function () {
-        $("nav ul").toggleClass("show");
-    });
+    let spin = document.getElementById("spin");
+    let accordion = document.getElementById("acordion");
+    setTimeout(function(){
+        spin.setAttribute("style",("display:none"));
+            accordion.removeAttribute("style");
+    },3000);
 });
-
-$(window).on("scroll", function() {
-    if($(window).scrollTop()) {
-          $('nav').addClass('transparent');
-    }
-
-    else {
-          $('nav').removeClass('transparent');
-    }
-})

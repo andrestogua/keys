@@ -1,0 +1,25 @@
+{% extends 'pass/pass_list.html' %}
+
+{% block content %}
+    <form action="" method="POST" class="col-md-6 card mx-auto mt-5">{% csrf_token %}
+        <div class="card-header text-center alert alert-danger">
+            <h3 class="mb-4"> ¿Estás seguro de eliminar esta cuenta?</h3>
+        </div>
+        <div class="card-body">
+            <div class="border-bottom">
+                <label for="" class="text-muted">Cuenta</label>
+            </div>
+            <p class="mt-3 text-center">
+                {{obj.account}}
+            </p>
+                <div class="border-bottom">
+                <label for="" class="text-muted">Contraseña</label>
+            </div>
+            <p class="mt-3 text-center">
+                    {{obj.password}}
+            </p>
+            <p><input type="submit" class="btn btn-danger btn-block" value="Eliminar"></p>
+            <a href="{% url 'pass_list' %}" class="btn btn-link btn-block">Cancelar</a>
+        </div>
+    </form>
+{% endblock content %}
